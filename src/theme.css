@@ -122,3 +122,13 @@
 }
 .ascii-front { color: var(--color-brand-500); animation: breathe 3s ease-in-out infinite; }
 .ascii-shadow { color: var(--color-glow-500); }
+
+/* The app icon (header + welcome card): a slow, soft glow ring and a gentle float. Theme tokens only. */
+@keyframes brand-icon-glow {
+  0%, 100% { filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-glow-500) 35%, transparent)); transform: translateY(0); }
+  50% { filter: drop-shadow(0 0 9px color-mix(in srgb, var(--color-brand-400) 75%, transparent)); transform: translateY(-1.5px); }
+}
+.brand-icon { animation: brand-icon-glow 3.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .brand-icon, .ascii-front { animation: none; }
+}

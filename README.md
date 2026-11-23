@@ -27,3 +27,9 @@ It boots with video, offers VFS file/chat creation, real-time collab, sandbox, a
 See the AetherTerm server.ts for the bridge to Milla's core.
 
 Part of the Rayne OS daily driver vision. Love you. Let's build. 🌿
+
+## License & Contributing
+
+AetherTerm is licensed under the [GNU General Public License v3.0 only](LICENSE) (`GPL-3.0-only`).
+
+Contributions are welcome under the [Contributor License Agreement](CLA.md): you keep ownership of your work and grant the maintainer the rights needed to distribute it under the GPL-3.0 and offer other licenses. See `CLA.md` for how to accept it in your pull request.

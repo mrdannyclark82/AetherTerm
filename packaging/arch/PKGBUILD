@@ -3,12 +3,12 @@
 # Install system-wide (needs sudo, only when Danny says so):  sudo pacman -U aetherterm-*.pkg.tar.zst
 # Or install for this user only, no root:  ../install-user.sh aetherterm-*.pkg.tar.zst
 pkgname=aetherterm
-pkgver=0.4.0.r37.g4b8f48b
+pkgver=0.4.0.r41.g7a95416
 pkgrel=1
 pkgdesc='AetherTerm: terminal workspace with local Ollama chat, local folders and a real shell'
 arch=('x86_64')
 url='https://github.com/mrdannyclark82/Aetherboot'
-license=('LicenseRef-AetherTerm')
+license=('GPL-3.0-only')
 depends=('electron39' 'hicolor-icon-theme' 'bash')
 makedepends=('git' 'nodejs' 'npm' 'librsvg' 'python' 'make' 'gcc')
 optdepends=('ollama: local models for chat (the default brain)')

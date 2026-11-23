@@ -193,12 +193,12 @@ export default function App() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const asciiArt = `███╗   ██╗███████╗██╗  ██╗██╗   ██╗███████╗    ██████╗  █████╗ ██╗   ██╗███╗   ██╗███████╗
-████╗  ██║██╔════╝╚██╗██╔╝██║   ██║██╔════╝    ██╔══██╗██╔══██╗╚██╗ ██╔╝████╗  ██║██╔════╝
-██╔██╗ ██║█████╗   ╚███╔╝ ██║   ██║███████╗    ██████╔╝███████║ ╚████╔╝ ██╔██╗ ██║█████╗  
-██║╚██╗██║██╔══╝   ██╔██╗ ██║   ██║╚════██║    ██╔══██╗██╔══██║  ╚██╔╝  ██║╚██╗██║██╔══╝  
-██║ ╚████║███████╗██╔╝ ██╗╚██████╔╝███████║    ██║  ██║██║  ██║   ██║   ██║ ╚████║███████╗
-╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚══════╝`;
+  const asciiArt = ` █████╗ ███████╗████████╗██╗  ██╗███████╗██████╗ ████████╗███████╗██████╗ ███╗   ███╗
+██╔══██╗██╔════╝╚══██╔══╝██║  ██║██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+███████║█████╗     ██║   ███████║█████╗  ██████╔╝   ██║   █████╗  ██████╔╝██╔████╔██║
+██╔══██║██╔══╝     ██║   ██╔══██║██╔══╝  ██╔══██╗   ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║
+██║  ██║███████╗   ██║   ██║  ██║███████╗██║  ██║   ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝`;
 
   const renderAscii = (text: string) => {
     return text.split('\n').map((line, lineIdx) => (
@@ -929,8 +929,8 @@ export default function App() {
         <ModeBanner />
         <div className="p-4 border-b border-ink-800 flex items-center justify-between bg-surface-1 flex-wrap gap-2">
           <div className="flex items-center gap-3 text-glow-400 flex-wrap">
-            <TerminalIcon size={18} />
-            <span className="font-bold tracking-wider">AETHER_TERM v2.0</span>
+            <TerminalIcon size={18} className="brand-icon" />
+            <span className="font-bold tracking-wider">AetherTerm</span>
             <div className="h-4 w-px bg-ink-800" />
             <span className="text-xs text-brand-400 font-mono flex items-center gap-1 bg-brand-950/30 px-2 py-0.5 rounded border border-brand-500/20">
               <Users size={12} />
@@ -986,7 +986,7 @@ export default function App() {
             <pre className="text-xs sm:text-sm leading-tight">
               {renderAscii(asciiArt)}
             </pre>
-            <p className="mt-4 text-ink-400">Welcome to <span className="text-brand-400 font-bold">NEXUS RAYNE</span>. Type <span className="text-glow-400">help</span> to see available commands.</p>
+            <p className="mt-4 text-ink-400">Welcome to <span className="text-brand-400 font-bold tracking-wide">AetherTerm</span>. Type <span className="text-glow-400">help</span> to see available commands.</p>
             <p className="mt-1 text-ink-500 text-xs">Try: <span className="text-brand-400">view https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../giphy.gif</span> or <span className="text-brand-400">generate-image a futuristic cyberpunk city</span></p>
           </div>
           
@@ -1503,12 +1503,12 @@ export default function App() {
               className="bg-surface-1 border border-glow-500/30 rounded-lg p-6 max-w-2xl w-full shadow-2xl shadow-glow-500/10"
             >
               <div className="flex items-center gap-3 mb-6 border-b border-ink-800 pb-4">
-                <TerminalIcon className="text-glow-400" size={28} />
-                <h2 className="text-2xl font-bold text-ink-100 tracking-wider">Welcome to NEXUS RAYNE</h2>
+                <TerminalIcon className="text-glow-400 brand-icon" size={28} />
+                <h2 className="text-2xl font-bold text-ink-100 tracking-wider">Welcome to AetherTerm</h2>
               </div>
               
               <div className="space-y-4 text-ink-300 mb-8">
-                <p>Nexus Rayne is a collaborative, AI-powered terminal environment. Here's what you can do:</p>
+                <p>AetherTerm is a collaborative, AI-powered terminal environment. Here's what you can do:</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                   <div className="bg-void/50 p-4 rounded border border-ink-800">
