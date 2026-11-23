@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=AetherTerm
+GenericName=AI Terminal Workspace
+Comment=Terminal workspace with local Ollama chat, synced files and a sandbox
+Exec=aetherterm
+Icon=aetherterm
+Terminal=false
+Categories=Development;
+Keywords=terminal;ollama;ai;chat;sandbox;
+StartupNotify=true
+StartupWMClass=aetherterm

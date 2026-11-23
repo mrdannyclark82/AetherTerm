@@ -1,0 +1,43 @@
+# Maintainer: Danny Clark
+# Local package for AetherTerm. Build:  cd packaging/arch && makepkg -f
+# Install system-wide (needs sudo, only when Danny says so):  sudo pacman -U aetherterm-*.pkg.tar.zst
+# Or install for this user only, no root:  ../install-user.sh aetherterm-*.pkg.tar.zst
+pkgname=aetherterm
+pkgver=0.4.0.r37.g4b8f48b
+pkgrel=1
+pkgdesc='AetherTerm: terminal workspace with local Ollama chat, local folders and a real shell'
+arch=('x86_64')
+url='https://github.com/mrdannyclark82/Aetherboot'
+license=('LicenseRef-AetherTerm')
+depends=('electron39' 'hicolor-icon-theme' 'bash')
+makedepends=('git' 'nodejs' 'npm' 'librsvg' 'python' 'make' 'gcc')
+optdepends=('ollama: local models for chat (the default brain)')
+options=('!strip' '!debug')
+# Built from the local branch, never from GitHub.
+_repo="${AETHERTERM_REPO:-$HOME/projects/aetherterm-app}"
+_branch="${AETHERTERM_BRANCH:-app/v0.4-term-home-canvas-theme}"
+source=("aetherterm::git+file://${_repo}#branch=${_branch}")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd aetherterm
+  printf '0.4.0.r%s.g%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd aetherterm
+  npm ci --no-audit --no-fund
+  packaging/build-app.sh "$srcdir/app"
+}
+
+package() {
+  cd aetherterm
+  install -dm755 "$pkgdir/usr/lib"
+  cp -a "$srcdir/app" "$pkgdir/usr/lib/aetherterm"
+  install -Dm755 packaging/aetherterm.sh "$pkgdir/usr/bin/aetherterm"
+  install -Dm644 packaging/aetherterm.desktop "$pkgdir/usr/share/applications/aetherterm.desktop"
+  install -Dm644 packaging/icons/aetherterm.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/aetherterm.svg"
+  for s in 16 24 32 48 64 128 256 512; do
+    install -Dm644 "packaging/icons/aetherterm-$s.png" "$pkgdir/usr/share/icons/hicolor/${s}x${s}/apps/aetherterm.png"
+  done
+}

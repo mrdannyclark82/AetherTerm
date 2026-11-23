@@ -1,0 +1,14 @@
+#!/bin/sh
+# AetherTerm: show a file in the Milla Workspace canvas (Real mode shell only).
+# Prints an OSC 7337 escape that the AetherTerm terminal picks up; elsewhere it does nothing visible.
+[ $# -gt 0 ] || { echo "usage: canvas FILE..." >&2; exit 2; }
+[ "$TERM_PROGRAM" = AetherTerm ] || { echo "canvas: only works inside AetherTerm" >&2; exit 1; }
+rc=0
+for f in "$@"; do
+  if [ -f "$f" ]; then
+    p=$(realpath -- "$f") && printf '\033]7337;canvas;%s\007' "$p"
+  else
+    echo "canvas: $f: not a file" >&2; rc=1
+  fi
+done
+exit $rc
